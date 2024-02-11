@@ -1,23 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import ParameterForm from "./components/ParameterForm";
+import { useState } from "react";
+import PDFView from "./components/PDFView";
 
 function App() {
+  const [values, setValues] = useState({});
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div style={{ maxWidth: 500 }}>
+        <ParameterForm submitParameters={setValues} />
+      </div>
+      <div>
+        <PDFView parameters={values} />
+      </div>
     </div>
   );
 }
